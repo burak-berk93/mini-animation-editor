@@ -9,7 +9,7 @@ const fileSlice = createSlice({
     addFiles: (state, action) => {
       action.payload.forEach(newFile => {
         if (!state.files.some(file => file.id === newFile.id)) {
-          state.files.push({ ...newFile, position: { x: 100, y: 100 } }); // ilk pozisyon
+          state.files.push({ ...newFile, position: { x: 100, y: 100 } }); 
         }
       });
     },

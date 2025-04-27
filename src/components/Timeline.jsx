@@ -14,7 +14,7 @@ export const Timeline = () => {
       dispatch(setCurrentFrameIndex(frameIndex));
       setTimeout(() => {
         animateTimeline(frameIndex + 1);
-      }, 800); // Frame arası 0.8 saniye
+      }, 800); 
     } else {
       dispatch(stopPlaying());
     }

@@ -5,7 +5,7 @@ const playSlice = createSlice({
   initialState: {
     isPlaying: false,
     currentFrameIndex: 0,
-    frameSequence: [], // Tüm frame'leri sırayla tutuyoruz
+    frameSequence: [], 
   },
   reducers: {
     startPlaying: (state, action) => {

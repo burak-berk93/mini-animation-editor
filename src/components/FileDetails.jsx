@@ -45,10 +45,9 @@ export const FileDetails = () => {
       y: relativeY / rect.height,
     };
 
-    // Log pozisyon bilgisi
-    console.log(`File ${file.id} dragged to:`, position);
+  
 
-    // Pozisyonu frame olarak kaydet
+   
     dispatch(
       addFrame({
         fileId: file.id,
@@ -94,27 +93,27 @@ export const FileDetails = () => {
           ? activeFrame.frame.y * containerSize.height
           : startY;
 
-        // Pozisyon güncellemesi log
+      
         console.log(`File ${file.id} animation: X=${animatedX}, Y=${animatedY}`);
 
         return (
           <motion.div
             key={file.id}
             className="absolute cursor-move"
-            drag={!isPlaying}  // Drag özelliğini yalnızca oynatılmayan durumda aktif tutuyoruz
-            dragConstraints={containerRef}  // Drag'ı sınırlıyoruz
-            initial={{ opacity: 0, scale: 0.8, x: startX, y: startY }}  // İlk pozisyon
+            drag={!isPlaying}  
+            dragConstraints={containerRef}  
+            initial={{ opacity: 0, scale: 0.8, x: startX, y: startY }}  
             animate={{
               x: animatedX,   // X pozisyonu
               y: animatedY,   // Y pozisyonu
               opacity: 1,
               scale: 1,
-              transition: { duration: 1, ease: "easeInOut" },  // Animasyon geçişi
+              transition: { duration: 1, ease: "easeInOut" },  
             }}
-            whileDrag={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.5)" }}  // Drag sırasında efekt
-            style={{ zIndex: 100 }}  // Taşınan öğe her zaman üstte olacak
-            onDragEnd={(e, info) => handleDragEnd(e, info, file)}  // Drag sonrasında pozisyonu kaydet
-            onDragStart={(e) => handleDragStart(e, file)}  // Drag başlatıldığında log
+            whileDrag={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.5)" }}  
+            style={{ zIndex: 100 }}  
+            onDragEnd={(e, info) => handleDragEnd(e, info, file)}  
+            onDragStart={(e) => handleDragStart(e, file)}  
           >
             <img
               src={file.fileUrl}

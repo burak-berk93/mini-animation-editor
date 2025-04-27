@@ -4,16 +4,19 @@ const playSlice = createSlice({
   name: 'play',
   initialState: {
     isPlaying: false,
-    currentFrameIndex: 0, // Eklendi
+    currentFrameIndex: 0,
+    frameSequence: [], // Tüm frame'leri sırayla tutuyoruz
   },
   reducers: {
-    startPlaying: (state) => {
+    startPlaying: (state, action) => {
       state.isPlaying = true;
       state.currentFrameIndex = 0;
+      state.frameSequence = action.payload || [];
     },
     stopPlaying: (state) => {
       state.isPlaying = false;
       state.currentFrameIndex = 0;
+      state.frameSequence = [];
     },
     setCurrentFrameIndex: (state, action) => {
       state.currentFrameIndex = action.payload;
